@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pizza-app';
+  orderPizza() {
+    fetch('http://localhost:3000/order')
+      .then(response => response.text())
+      .then(data => {
+        console.log(data); // Log server response to the console
+      })
+      .catch(error => console.error(error));
+  }
 }
